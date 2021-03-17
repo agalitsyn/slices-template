@@ -1,11 +1,8 @@
 const fileinclude = require("gulp-file-include");
-const del = require("del");
 const gulp = require("gulp");
 
 const srcDir = "./src";
 const buildDir = "./dist";
-
-gulp.task("clean", del.bind(null, [buildDir]));
 
 gulp.task("html", function (done) {
   gulp
@@ -48,14 +45,11 @@ gulp.task("img", function () {
   return gulp.src(srcDir + "/img/**/*.png").pipe(gulp.dest(buildDir + "/img"));
 });
 
-gulp.task("extras", function (done) {
+gulp.task("icons", function (done) {
   gulp
     .src([srcDir + "/favicon.ico", srcDir + "/icon.png"])
     .pipe(gulp.dest(buildDir));
   done();
 });
 
-gulp.task(
-  "default",
-  gulp.series("clean", "styles", "scripts", "html", "extras", "img")
-);
+gulp.task("default", gulp.series("styles", "scripts", "html", "icons", "img"));

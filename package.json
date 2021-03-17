@@ -9,10 +9,7 @@
     "build": "gulp"
   },
   "devDependencies": {
-    "gulp-file-include": "^2.3.0",
-    "del": "^6.0.0",
-    "gulp": "^4.0.2"
-  },
-  "dependencies": {
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
   }
 }
